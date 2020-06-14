@@ -9,6 +9,8 @@ train_txt, val_txt, test_txt = torchtext.datasets.WikiText2.splits(TEXT)
 TEXT.build_vocab(train_txt)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+#print(device)
+#print(torch.cuda.is_available())
 
 def batchify(data, bsz):
     data = TEXT.numericalize([data.examples[0].text])
